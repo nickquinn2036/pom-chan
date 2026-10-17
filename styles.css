@@ -78,12 +78,19 @@ body {
     display: flex;
     flex-direction: column;
     cursor: grab;             
-    touch-action: none;  /* touch-action: none prevents mobile screen swipe overrides during dragging */
+    
+    touch-action: auto;  
+
+    user-select: none;         
+    -webkit-user-select: none; /* Safari and iOS Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
 }
 
 .timer-box:active {
     cursor: grabbing;   
 }
+
 
 .character-avatar-zone {
     position: relative;

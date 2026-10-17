@@ -384,19 +384,34 @@ function handleSecondsBlur() {
 }
 
 function startDrag(e) {
+
+    if (window.innerWidth < 768) return;
+
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.getAttribute('contenteditable') === 'true') return;
     isDragging = true;
-    const cx = e.type.startsWith('touch') ? e.touches.clientX : e.clientX;
-    const cy = e.type.startsWith('touch') ? e.touches.clientY : e.clientY;
-    const rect = timerBox.getBoundingClientRect(); startX = cx - rect.left; startY = cy - rect.top;
-    document.addEventListener('mousemove', dragMove); document.addEventListener('touchmove', dragMove, { passive: false });
-    document.addEventListener('mouseup', stopDrag); document.addEventListener('touchend', stopDrag);
+
+    window.getSelection().removeAllRanges();
+
+    
+    const cx = e.type.startsWith('touch') ? e.targetTouches[0].clientX : e.clientX;
+    const cy = e.type.startsWith('touch') ? e.targetTouches[0].clientY : e.clientY;
+    
+    const rect = timerBox.getBoundingClientRect(); 
+    startX = cx - rect.left; 
+    startY = cy - rect.top;
+    
+    document.addEventListener('mousemove', dragMove); 
+    document.addEventListener('touchmove', dragMove, { passive: false });
+    document.addEventListener('mouseup', stopDrag); 
+    document.addEventListener('touchend', stopDrag);
 }
 
 function dragMove(e) {
-    if (!isDragging) return; if (e.cancelable) e.preventDefault();
-    const cx = e.type.startsWith('touch') ? e.touches.clientX : e.clientX;
-    const cy = e.type.startsWith('touch') ? e.touches.clientY : e.clientY;
+    if (!isDragging) return; 
+    if (e.cancelable) e.preventDefault();
+    
+    const cx = e.type.startsWith('touch') ? e.targetTouches[0].clientX : e.clientX;
+    const cy = e.type.startsWith('touch') ? e.targetTouches[0].clientY : e.clientY;
     
     timerBox.style.transform = "none"; 
     timerBox.style.margin = "0"; 
@@ -404,5 +419,14 @@ function dragMove(e) {
     timerBox.style.top = `${cy - startY}px`;
 }
 
-function stopDrag() { isDragging = false; document.removeEventListener('mousemove', dragMove); document.removeEventListener('touchmove', dragMove); }
-function initApp() { currentState = 'STUDY'; timeLeft = 25 * 60; sessionSeconds = timeLeft; }
+function stopDrag() { 
+    isDragging = false; 
+    document.removeEventListener('mousemove', dragMove); 
+    document.removeEventListener('touchmove', dragMove); 
+}
+
+function initApp() { 
+    currentState = 'STUDY'; 
+    timeLeft = 25 * 60; 
+    sessionSeconds = timeLeft; 
+}
