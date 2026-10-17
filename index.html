@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pom-chan</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    
+<button id="burger-menu-btn" class="burger-btn">☰</button>
+
+<div id="settings-sidebar" class="sidebar">
+
+    <div class="sidebar-content">
+
+        <h2>🧰 Tools & Customization</h2>
+        
+        <div class="tool-group cascade-item">
+            <label style="font-weight: bold; color: #ff79c6;">🎭 Expression Asset Studio</label>
+            
+            <div class="hybrid-asset-slot" style="margin-top: 10px; border-bottom: 1px solid #362e4c; padding-bottom: 8px;">
+                <label for="url-standby" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 4px;">Standby Sprite URL:</label>
+                <input type="text" id="url-standby" placeholder="Paste web link image URL..." style="font-size: 0.8rem; width: 100%; margin-bottom: 6px;">
+                
+                <label for="uploader-standby" style="font-size: 0.75rem; opacity: 0.6; display: block; margin-bottom: 2px;">Or Upload Local File:</label>
+                <input type="file" id="uploader-standby" accept="image/png, image/jpeg" style="font-size: 0.8rem; width: 100%;">
+            </div>
+
+            <div class="hybrid-asset-slot" style="margin-top: 8px; border-bottom: 1px solid #362e4c; padding-bottom: 8px;">
+                <label for="url-study" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 4px;">Study Focus Sprite URL:</label>
+                <input type="text" id="url-study" placeholder="Paste web link image URL..." style="font-size: 0.8rem; width: 100%; margin-bottom: 6px;">
+                
+                <label for="uploader-study" style="font-size: 0.75rem; opacity: 0.6; display: block; margin-bottom: 2px;">Or Upload Local File:</label>
+                <input type="file" id="uploader-study" accept="image/png, image/jpeg" style="font-size: 0.8rem; width: 100%;">
+            </div>
+
+            <div class="hybrid-asset-slot" style="margin-top: 8px;">
+                <label for="url-break" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 4px;">Break/Rest Sprite URL:</label>
+                <input type="text" id="url-break" placeholder="Paste web link image URL..." style="font-size: 0.8rem; width: 100%; margin-bottom: 6px;">
+                
+                <label for="uploader-break" style="font-size: 0.75rem; opacity: 0.6; display: block; margin-bottom: 2px;">Or Upload Local File:</label>
+                <input type="file" id="uploader-break" accept="image/png, image/jpeg" style="font-size: 0.8rem; width: 100%;">
+            </div>
+        </div>
+
+        <div class="tool-group cascade-item">
+            <label for="alarm-uploader" style="font-size: 0.8rem; opacity: 0.8;">Change Alarm Bell (.mp3):</label>
+            <input type="file" id="alarm-uploader" accept="audio/mp3" style="font-size: 0.8rem;">
+        </div>
+
+        <div class="tool-group cascade-item" style="border-top: 1px solid #362e4c; padding-top: 15px;">
+            <label style="font-weight: bold; color: #ff79c6;">🖼️ Room Background Studio</label>
+            <div class="hybrid-asset-slot" style="margin-top: 5px;">
+                <label for="url-background" style="font-size: 0.8rem; opacity: 0.8; display: block; margin-bottom: 4px;">Custom Backdrop URL:</label>
+                <input type="text" id="url-background" placeholder="Paste room wall link URL..." style="font-size: 0.8rem; width: 100%; margin-bottom: 6px;">
+                
+                <label for="uploader-background" style="font-size: 0.75rem; opacity: 0.6; display: block; margin-bottom: 2px;">Or Upload Local File:</label>
+                <input type="file" id="uploader-background" accept="image/png, image/jpeg" style="font-size: 0.8rem; width: 100%;">
+            </div>
+        </div>
+
+        <div class="tool-group cascade-item" style="border-top: 1px solid #362e4c; padding-top: 15px;">
+            <label style="font-weight: bold; color: #ff79c6;">💬 Dialogue Configuration</label>
+            
+            <div style="margin-top: 10px; border-bottom: 1px solid #362e4c; padding-bottom: 12px; display: flex; flex-direction: column; gap: 6px;">
+                <label for="custom-dialogue-input" style="font-size: 0.8rem; opacity: 0.8;">Add Custom Dialogue:</label>
+                <input type="text" id="custom-dialogue-input" placeholder="Type text here..." style="font-size: 0.8rem;">
+                
+                <select id="custom-dialogue-type" style="font-size: 0.8rem; padding: 6px; background-color: #1a1625; color: #f4f0fa; border: 1px solid #362e4c; border-radius: 6px; width: 100%;">
+                    <option value="STUDY">Study Line</option>
+                    <option value="BREAK">Break Line</option>
+                    <option value="STANDBY">Standby Line</option>
+                </select>
+                
+                <button id="save-dialogue-btn" style="margin-top: 2px; width: 100%; font-size: 0.8rem; padding: 6px 12px;">Add Line</button>
+            </div>
+            
+            <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 4px;">
+                <label for="custom-name-input" style="font-size: 0.8rem; opacity: 0.8;">Companion Name:</label>
+                <input type="text" id="custom-name-input" placeholder="Pom-chan">
+            </div>
+
+            <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="toggle-custom-only-checkbox" style="cursor: pointer; width: auto;">
+                <label for="toggle-custom-only-checkbox" style="font-size: 0.8rem; cursor: pointer; user-select: none;">Use Custom Lines Only</label>
+            </div>
+
+            <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px; border-top: 1px solid #362e4c; padding-top: 10px; margin-bottom: 10px;">
+                <input type="checkbox" id="toggle-char-visibility" style="cursor: pointer; width: auto;" checked>
+                <label for="toggle-char-visibility" style="font-size: 0.8rem; cursor: pointer; user-select: none;">Show Companion Avatar</label>
+            </div>
+
+            <button id="clear-dialogue-btn" style="margin-top: 10px; background-color: #5a233b; border-color: #ff5555; font-size: 0.8rem; width: 100%;">
+                🗑️ Clear Custom Dialogue Lines
+            </button>
+
+            <button id="hard-reset-cache-btn" style="margin-top: 15px; background-color: #3d1a24; border-color: #ff5555; font-size: 0.8rem; width: 100%; color: #ff5555;">
+                🚨 Hard Reset All App Memory
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div class="timer-box">
+
+    <div class="character-avatar-zone" style="position: relative; text-align: center;">
+        <img id="char-sprite" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Companion Avatar" style="max-width: 200px; display: block; margin: 0 auto;">
+        
+        <button id="talk-btn" class="interact-btn">💬 Talk</button>
+    </div>
+
+    <div class="dialogue-speech-zone">
+        <div id="character-nametag">Pom-chan</div>
+        <p id="dialogue-box">Click START to begin studying together!</p>
+    </div>
+
+    <div class="state-indicators">
+        <button id="indicator-study" class="indicator active">STUDY</button>
+        <button id="indicator-standby" class="indicator">STANDBY</button>
+        <button id="indicator-break" class="indicator">BREAK</button>
+    </div>
+
+    <div class="interactive-clock">
+        <div class="digit-column">
+            <button id="min-up" class="arrow-btn">▲</button>
+            <div id="minutes-display" contenteditable="true">25</div>
+            <button id="min-down" class="arrow-btn">▼</button>
+        </div>
+        <div class="clock-colon">:</div>
+        <div class="digit-column">
+            <button id="sec-up" class="arrow-btn">▲</button>
+            <div id="seconds-display" contenteditable="true">00</div>
+            <button id="sec-down" class="arrow-btn">▼</button>
+        </div>
+    </div>
+
+    <div class="button-grid">
+        <button id="start-btn">START</button>
+        <button id="pause-btn">PAUSE</button> 
+        <button id="reset-btn">RESET</button>
+        <button id="add-time-btn">+1 Min</button>
+    </div>
+</div>
+
+</body>
+</html>
