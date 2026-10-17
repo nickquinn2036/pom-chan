@@ -4,7 +4,7 @@ A cutesy desktop customization focus engine and companion web-app. Designed with
 
 ## 🚀 Live Demo
 
----
+https://nickquinn2036.github.io/pom-chan/
 
 ## 🎭 Features
 
