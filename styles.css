@@ -78,13 +78,11 @@ body {
     display: flex;
     flex-direction: column;
     cursor: grab;             
-    
     touch-action: auto;  
-
     user-select: none;         
-    -webkit-user-select: none; /* Safari and iOS Chrome */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE/Edge */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .timer-box:active {
