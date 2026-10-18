@@ -152,10 +152,11 @@ function loadUserDataFromCache() {
         if (parsedMemory.hasOwnProperty('customOnlySetting')) toggleCustomOnlyCheckbox.checked = parsedMemory.customOnlySetting;
 
         // FIXED: Input value population lives securely inside the bootstrap initialization loop ONLY
-        if (SPRITE_EXPRESSIONS.STANDBY.startsWith('http')) urlStandby.value = SPRITE_EXPRESSIONS.STANDBY;
-        if (SPRITE_EXPRESSIONS.STUDY.startsWith('http')) urlStudy.value = SPRITE_EXPRESSIONS.STUDY;
-        if (SPRITE_EXPRESSIONS.BREAK.startsWith('http')) urlBreak.value = SPRITE_EXPRESSIONS.BREAK;
-        if (SPRITE_EXPRESSIONS.BACKGROUND.startsWith('http')) urlBackground.value = SPRITE_EXPRESSIONS.BACKGROUND;
+        if (SPRITE_EXPRESSIONS.STANDBY.toLowerCase().startsWith('https')) urlStandby.value = SPRITE_EXPRESSIONS.STANDBY;
+        if (SPRITE_EXPRESSIONS.STUDY.toLowerCase().startsWith('https')) urlStudy.value = SPRITE_EXPRESSIONS.STUDY;
+        if (SPRITE_EXPRESSIONS.BREAK.toLowerCase().startsWith('https')) urlBreak.value = SPRITE_EXPRESSIONS.BREAK;
+        if (SPRITE_EXPRESSIONS.BACKGROUND.toLowerCase().startsWith('https')) urlBackground.value = SPRITE_EXPRESSIONS.BACKGROUND;
+
         
     } catch (error) {
         console.error("Failed to parse cached memory tree:", error);
